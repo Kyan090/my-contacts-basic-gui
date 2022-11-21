@@ -44,7 +44,7 @@ function addContact() {
   let email = prompt('Enter Contact Email...')
   let phone = prompt('Enter Contact Phone...')
   let country = prompt('Enter Country...')
-  let info = name + email + phone + country;
+  let info = [name, email, phone, country];
   contacts.push(newContact(info));
   outputEl.innerHTML = `New Contact Add: (${name})`;
   saveContacts()
@@ -54,12 +54,21 @@ function removeContact() {
   let contactIndex = +prompt('Please enter the index number of contact to remove:');
   contacts.splice(contactIndex, 1);
   saveContacts();
-  displayContacts();
+  outputEl.innerHTML = `Successfully removed contact #${contactIndex}.`
 }
 
 function displayByName() {
-  console.log('Display by Name');
+  let nameInput = prompt('Enter Name...');
+  console.log(nameInput);
+  for (let i = 0; i < contacts.length; i++) {
+   console.log(contacts[i]);
+    if (contacts[i].includes(nameInput)) {
+      console.log(true);
+    }
+  
+  }
 }
+
 
 function displayByCountry() {
   console.log('Display by Country');
@@ -84,7 +93,6 @@ function getContact() {
 function newContact(contactDescription) {
   return {
     description: contactDescription,
-    completed: ''
   };
 }
 
