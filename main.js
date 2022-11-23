@@ -59,19 +59,25 @@ function removeContact() {
 
 function displayByName() {
   let nameInput = prompt('Enter Name...');
-  console.log(nameInput);
+  let outPutNameStr = '';
   for (let i = 0; i < contacts.length; i++) {
-   console.log(contacts[i]);
-    if (contacts[i].includes(nameInput)) {
-      console.log(true);
+      if (contacts[i].description[0].includes(nameInput)) {
+        outPutNameStr += getContactHTMLStr(contacts[i], i)
+      } 
     }
-  
+    outputEl.innerHTML = outPutNameStr;
   }
-}
 
 
 function displayByCountry() {
-  console.log('Display by Country');
+  let countryInput = prompt('Enter The Country The Contact Is From...');
+  let outPutCountryStr = '';
+  for (let i = 0; i < contacts.length; i++) {
+      if (contacts[i].description[3].includes(countryInput)) {
+        outPutCountryStr += getContactHTMLStr(contacts[i], i)
+      } 
+    }
+    outputEl.innerHTML = outPutCountryStr;
 }
 
 
