@@ -68,6 +68,7 @@ function displayByName() {
     outputEl.innerHTML = outPutNameStr;
   }
 
+  
 
 function displayByCountry() {
   let countryInput = prompt('Enter The Country The Contact Is From...');
